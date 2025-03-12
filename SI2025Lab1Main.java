@@ -60,56 +60,78 @@ class TaskManager {
         }
     }
 
-    // MISSING FEATURES:
+  public void removeTask(String name) {
+      tasks.removeIf(task -> task.getName().equals(name));
+  }
 
-    // 1. Remove a task by name
-    public void removeTask(String name) {
-        // TODO: Implement removal logic
+ public List<Task> getCompletedTasks() {
+        List<Task> completedTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.isCompleted()) {
+                completedTasks.add(task);
+            }
+        }
+        return completedTasks;
     }
 
-    // 2. Find all completed tasks
-    public List<Task> getCompletedTasks() {
-        // TODO: Implement logic to return completed tasks
-        return new ArrayList<>();
-    }
+   // 3. List tasks sorted by name
+   public void sortTasksByName() {
+       tasks.sort(Comparator.comparing(Task::getName));
+   }
+  public void sortTasksByPriority() {
+      tasks.sort(Comparator.comparing(Task::getPriority));
+  }
 
-    // 3. List tasks sorted by name
-    public void sortTasksByName() {
-        // TODO: Implement sorting logic
-    }
+  public List<Task> filterByCategory(String category) {
+      List<Task> filteredTasks = new ArrayList<>();
+      for (Task task : tasks) {
+          if (task.getCategory().equalsIgnoreCase(category)) {
+              filteredTasks.add(task);
+          }
+      }
+      return filteredTasks;
+  }
 
-    // 4. Sort tasks by priority
-    public void sortTasksByPriority() {
-        // TODO: Implement sorting by priority logic
-    }
+ // 6. Find the highest-priority unfinished task
+ public List<Task> getMostUrgentTasks() {
+     List<Task> urgentTasks = new ArrayList<>();
+     for (Task task : tasks) {
+         if (!task.isCompleted()) {
+             if (urgentTasks.isEmpty() || task.getPriority().compareTo(urgentTasks.get(0).getPriority()) < 0) {
+                 urgentTasks.clear();
+                 urgentTasks.add(task);
+             } else if (task.getPriority().compareTo(urgentTasks.get(0).getPriority()) == 0) {
+                 urgentTasks.add(task);
+             }
+         }
+     }
+     return urgentTasks;
+ }
 
-    // 5. Filter tasks by category
-    public List<Task> filterByCategory(String category) {
-        // TODO: Implement filtering logic
-        return new ArrayList<>();
+public Map<String, Integer> countTasksPerCategory() {
+    Map<String, Integer> categoryCount = new HashMap<>();
+    for (Task task : tasks) {
+        categoryCount.put(task.getCategory(), categoryCount.getOrDefault(task.getCategory(), 0) + 1);
     }
+    return categoryCount;
+}
 
-    // 6. Find the highest-priority unfinished task
-    public List<Task> getMostUrgentTasks() {
-        // TODO: Implement logic to find most urgent tasks
-        return new ArrayList<>();
-    }
+  public void markTaskCompleted(String name) {
+      for (Task task : tasks) {
+          if (task.getName().equals(name)) {
+              task.complete();
+              break;
+          }
+      }
+  }
 
-    // 7. Count tasks per category
-    public Map<String, Integer> countTasksPerCategory() {
-        // TODO: Implement counting logic
-        return new HashMap<>();
+public void markCategoryCompleted(String category) {
+    for (Task task : tasks) {
+        if (task.getCategory().equalsIgnoreCase(category)) {
+            task.complete();
+        }
     }
-
-    // 8. Mark a task as completed by name
-    public void markTaskCompleted(String name) {
-        // TODO: Implement completion logic
-    }
-
-    // 9. Mark all tasks in a category as completed
-    public void markCategoryCompleted(String category) {
-        // TODO: Implement bulk completion logic
-    }
+}
 }
 
 public class SI2025Lab1Main {
@@ -120,7 +142,38 @@ public class SI2025Lab1Main {
         manager.addTask("Buy groceries", Priority.LOW, "Personal");
 
         // MISSING: Calls to the new methods that will be implemented
+        // 1. Remove a task by name
+        manager.removeTask("Buy groceries");
+        // 2. List completed tasks
+        List<Task> completedTasks = manager.getCompletedTasks();
+        for (Task task : completedTasks) {
+            System.out.println(task);
+        }
+        // 3. List tasks sorted by name
+        manager.sortTasksByName();
+        // 4. List tasks sorted by priority
+        manager.sortTasksByPriority();
 
+        // 5. Filter tasks by category
+        List<Task> filteredTasks = manager.filterByCategory("School");
+        for (Task task : filteredTasks) {
+            System.out.println(task);
+        }
+        // 6. Find the highest-priority unfinished task
+        List<Task> urgentTasks = manager.getMostUrgentTasks();
+        for (Task task : urgentTasks) {
+            System.out.println(task);
+        }
+        // 7. Count tasks per category
+        Map<String, Integer> categoryCount = manager.countTasksPerCategory();
+
+        for (Map.Entry<String, Integer> entry : categoryCount.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        // 8. Mark a task as completed
+        manager.markTaskCompleted("Write report");
+        // 9. Mark all tasks in a category as completed
+        manager.markCategoryCompleted("School");
         manager.printTasks();
     }
 }
