@@ -1,0 +1,58 @@
+13.git fetch- poflekuvanje na site promeni postaveni na GitHub -- From https://github.com/teddtsx/SI_2025_lab1_181271
+ * [new branch]      1-remove-a-task-by-name -> origin/1-remove-a-task-by-name
+ * [new branch]      4-sort-tasks-by-priority -> origin/4-sort-tasks-by-priority
+ * [new branch]      9-mark-all-tasks-in-a-category-as-completed -> origin/9-mark-all-tasks-in-a-category-as-completed
+14.git checkout -b 1-remove-a-task-by-name
+Switched to a new branch '1-remove-a-task-by-name'
+ prefrluvanje na nova granka od vekje napravenite od prethodniot chekor
+
+15. implementacija na site metodi od java fajlot
+
+16.
+
+1) git add . - dodavanje na site promeni lokalno
+ git commit -m "" - prikachuvanje na lokalniot repositorium
+ git push origin 1-remove-a-task-by-name
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 719 bytes | 719.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/teddtsx/SI_2025_lab1_181271.git
+   155ebf4..9f59939  1-remove-a-task-by-name -> 1-remove-a-task-by-name
+git fetch origin --recurse-submodules=no --progress --prune - Ги презема најновите промени од origin (remote репозиториум), но не ги менува локалните гранки.
+git merge origin/1-remove-a-task-by-name - Ова значи дека ја спојува remote гранката 1-remove-a-task-by-name (од origin) во тековната локална гранка.
+
+2)git checkout -b 4-sort-tasks-by-priority origin/4-sort-tasks-by-priority --branch '4-sort-tasks-by-priority' set up to track 'origin/4-sort-tasks-by-priority'. -Ја поврзува новата локална гранка со remote гранката origin/4-sort-tasks-by-priority, за да може да ги преземе промените оддалеку.
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- SI2025Lab1Main.java
+ git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F C:\Users\Teodor\AppData\Local\Temp\git-commit-msg-.txt --
+[4-sort-tasks-by-priority 23fcdbc] implementing sort task by Priority method
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false push --progress --porcelain origin refs/heads/4-sort-tasks-by-priority:4-sort-tasks-by-priority
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false -c core.commentChar= rebase origin/master master
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false fetch origin --recurse-submodules=no --progress --prune
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false merge origin/4-sort-tasks-by-priority
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f --sparse -- SI2025Lab1Main.java
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F D:\Fakultet\SI_2025_lab1_181271\SI_2025_lab1_181271\.git\MERGE_MSG --
+[master 1deec80] Merge remote-tracking branch 'origin/4-sort-tasks-by-priority'
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false checkout 1-remove-a-task-by-name --
+
+3)git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f --sparse -- SI2025Lab1Main.java
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false -c core.commentChar= rebase --continue
+Successfully rebased and updated refs/heads/master.
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false checkout -b 9-mark-all-tasks-in-a-category-as-completed origin/9-mark-all-tasks-in-a-category-as-completed --
+branch '9-mark-all-tasks-in-a-category-as-completed' set up to track 'origin/9-mark-all-tasks-in-a-category-as-completed'.
+Switched to a new branch '9-mark-all-tasks-in-a-category-as-completed'
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false add --ignore-errors -A -f -- SI2025Lab1Main.java
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false commit -F C:\Users\Teodor\AppData\Local\Temp\git-commit-msg-.txt --
+[9-mark-all-tasks-in-a-category-as-completed 8ac3b96] implementing sort task by Priority method
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false -c core.commentChar= rebase origin/master master
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false fetch origin --recurse-submodules=no --progress --prune
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false merge origin/9-mark-all-tasks-in-a-category-as-completed
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false fetch origin --recurse-submodules=no --progress --prune
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false -c core.commentChar= rebase origin/9-mark-all-tasks-in-a-category-as-completed 9-mark-all-tasks-in-a-category-as-completed
+git -c credential.helper= -c core.quotepath=false -c log.showSignature=false -c core.commentChar= rebase origin/master master
+
+
