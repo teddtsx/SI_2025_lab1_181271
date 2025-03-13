@@ -1,0 +1,14 @@
+$ git log --oneline --graph --all
+*   95c6505 (HEAD -> master, origin/master, origin/HEAD) Merge remote-tracking branch 'origin/9-mark-all-tasks-in-a-category-as-completed'
+|\
+| * b9bfc8a (origin/9-mark-all-tasks-in-a-category-as-completed, 9-mark-all-tasks-in-a-category-as-completed) implementing mark category completed method
+| * 8ac3b96 implementing sort task by Priority method
+* | 2526865 implementing sort task by Priority method
+* | 9f59939 (origin/1-remove-a-task-by-name, 1-remove-a-task-by-name) Implementing remove task by name
+* | 155ebf4 Implemented all methods
+|/
+| * 23fcdbc (origin/4-sort-tasks-by-priority, 4-sort-tasks-by-priority) implementing sort task by Priority method
+|/
+* f94ec3d Add starter code
+* 28f7ea0 Initial commit
+
