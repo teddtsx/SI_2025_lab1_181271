@@ -124,7 +124,7 @@ public class SI2025Lab1Main {
         manager.addTask("Buy groceries", Priority.LOW, "Personal");
 
         // MISSING: Calls to the new methods that will be implemented
-        manager.markCategoryCompleted("School");
+        manager.markCategoryCompleted("Personal");
 
         manager.printTasks();
     }
